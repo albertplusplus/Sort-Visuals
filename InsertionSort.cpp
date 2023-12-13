@@ -69,8 +69,8 @@ int main()
 		}
 
 		if (i >= N) DrawText("Done!", WIDTH / 2 - WIDTH / 20, HEIGHT / 20, 50, BLUE);
+		else --j;
 
-		--j;
 		EndDrawing();
 	}
 	CloseWindow();
