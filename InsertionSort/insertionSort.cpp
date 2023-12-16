@@ -12,12 +12,12 @@
 #include <vector>
 #include <time.h>
 
-constexpr const int N   = 50, 
-		WIDTH   = 800, 
-		HEIGHT  = 500, 
-		FPS     = 60, 
-		MAX     = 100, 
-		MIN     = 10;
+constexpr const int N       = 50, 
+		    WIDTH   = 800, 
+		    HEIGHT  = 500, 
+		    FPS     = 60, 
+		    MAX     = 100, 
+		    MIN     = 10;
 
 void exch(std::vector<int>&, int a, int b);
 
