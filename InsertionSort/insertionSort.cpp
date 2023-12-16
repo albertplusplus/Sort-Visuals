@@ -1,10 +1,19 @@
+/**
+ * A program to visualize the insertion sort algorithm
+ * A vector of size N is made with random values between MIN and MAX, inclusive
+ * Rectangle heights correspond to magnitude of vector elements
+ * Elements are sorted and graphic window is updated after every iteration, visualizing the sort
+ *
+ * @author Albert Bear
+ */
+
 #include <iostream>
 #include <raylib.h>
 #include <vector>
 #include <time.h>
 
 
-constexpr const int N = 50, WIDTH = 800, HEIGHT = 500, FPS = 60;
+constexpr const int N = 50, WIDTH = 800, HEIGHT = 500, FPS = 60, MAX = 100, MIN = 10;
 void exch(std::vector<int>&, int a, int b);
 
 
@@ -41,7 +50,7 @@ int main()
 
 	auto v = std::vector<int>(N);
 	for (int i = 0; i < N; ++i)
-		v[i] = (rand() % 71) + 30;
+		v[i] = (rand() % (MAX - MIN + 1)) + MIN;
 
 	rectangle* rectangles = (rectangle*)malloc(N * sizeof(rectangle));
 	for (int i = 0; i < N; ++i)
