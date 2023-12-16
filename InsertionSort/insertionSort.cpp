@@ -12,17 +12,20 @@
 #include <vector>
 #include <time.h>
 
+constexpr const int N   = 50, 
+		WIDTH   = 800, 
+		HEIGHT  = 500, 
+		FPS     = 60, 
+		MAX     = 100, 
+		MIN     = 10;
 
-constexpr const int N = 50, WIDTH = 800, HEIGHT = 500, FPS = 60, MAX = 100, MIN = 10;
 void exch(std::vector<int>&, int a, int b);
-
 
 class rectangle
 {
 public:
 	float height, pos;
 	Rectangle r;
-
 	rectangle(float i, float v) : pos(i), height(v)
 	{
 		r.x = WIDTH / N * pos + (WIDTH / N / 4);
@@ -30,7 +33,6 @@ public:
 		r.y = HEIGHT - r.height;
 		r.width = WIDTH / N / 2;
 	}
-
 	void draw()
 	{
 		DrawRectangleRec(r, MAROON);
@@ -70,13 +72,11 @@ int main()
 		if (i < N)
 			if (v[j] < v[j - 1])
 				exch(v, j, j - 1);
-
 		for (int k = 0; k < N; ++k)
 		{
 			rectangles[k].update(v[k]);
 			rectangles[k].draw();
 		}
-
 		if (i >= N) DrawText("Done!", WIDTH / 2 - WIDTH / 20, HEIGHT / 20, 50, BLUE);
 		else --j;
 
