@@ -12,14 +12,25 @@
 #include <vector>
 #include <time.h>
 
-constexpr const int N       = 50, 
-		    WIDTH   = 800, 
-		    HEIGHT  = 500, 
-		    FPS     = 60, 
-		    MAX     = 100, 
-		    MIN     = 10;
+constexpr const int N      = 50,
+					WIDTH  = 800,
+					HEIGHT = 500,
+					FPS    = 60,
+					MAX    = 100,
+					MIN    = 10;
 
-void exch(std::vector<int>&, int a, int b);
+
+struct swap_
+{
+	template <typename T>
+	void operator()(T& a, T& b)
+	{
+		T tmp{ a };
+		a = b;
+		b = tmp;
+	}
+} swap;
+
 
 class rectangle
 {
@@ -54,9 +65,10 @@ int main()
 	for (int i = 0; i < N; ++i)
 		v[i] = (rand() % (MAX - MIN + 1)) + MIN;
 
-	rectangle* rectangles = (rectangle*)malloc(N * sizeof(rectangle));
+	auto rectangles = std::vector<rectangle>();
+
 	for (int i = 0; i < N; ++i)
-		rectangles[i] = rectangle(i, v[i]);
+		rectangles.push_back(rectangle(i, v[i]));
 
 	InitWindow(WIDTH, HEIGHT, "Visualize Insertion Sort");
 	SetTargetFPS(FPS);
@@ -71,7 +83,8 @@ int main()
 
 		if (i < N)
 			if (v[j] < v[j - 1])
-				exch(v, j, j - 1);
+				swap(v[j], v[j - 1]);
+
 		for (int k = 0; k < N; ++k)
 		{
 			rectangles[k].update(v[k]);
@@ -83,12 +96,4 @@ int main()
 		EndDrawing();
 	}
 	CloseWindow();
-
-}
-
-void exch(std::vector<int>& v, int a, int b)
-{
-	int tmp = v[a];
-	v[a] = v[b];
-	v[b] = tmp;
 }
