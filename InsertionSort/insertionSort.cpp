@@ -13,11 +13,11 @@
 #include <time.h>
 
 constexpr const int N      = 50,
-					WIDTH  = 800,
-					HEIGHT = 500,
-					FPS    = 60,
-					MAX    = 100,
-					MIN    = 10;
+		    WIDTH  = 800,
+		    HEIGHT = 500,
+		    FPS    = 60,
+		    MAX    = 100,
+		    MIN    = 10;
 
 
 struct swap_
