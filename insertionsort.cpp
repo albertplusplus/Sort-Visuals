@@ -20,18 +20,6 @@ constexpr const int N      = 50,
 		    MIN    = 10;
 
 
-struct swap_
-{
-	template <typename T>
-	void operator()(T& a, T& b)
-	{
-		T tmp{ a };
-		a = b;
-		b = tmp;
-	}
-} swap;
-
-
 class rectangle
 {
 public:
@@ -83,7 +71,7 @@ int main()
 
 		if (i < N)
 			if (v[j] < v[j - 1])
-				swap(v[j], v[j - 1]);
+				std::swap(v[j], v[j - 1]);
 
 		for (int k = 0; k < N; ++k)
 		{
