@@ -15,7 +15,7 @@ LIBRARY_PATH = lib/
 # For a single file or unity build, rename source to your entry point (often main.c)
 # To include all C files, use the wildcard below:
 # SOURCE = $( wildcard *.c **/*.c )
-SOURCE = insertionSort.cpp
+SOURCE = insertionsort.cpp
 
 # Compiler Flags
 CFLAGS += -O1 -Wall -std=c++11 -Wno-missing-braces 
